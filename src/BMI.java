@@ -1,34 +1,37 @@
-import java.awt.*;
-import javax.swing.*;
-import javax.swing.border.TitledBorder;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JFrame;
+import java.awt.GridLayout;
 
-public class BMI extends Frame{
-		
-		private JTextField jtfHeight = new JTextField();
-		private JTextField jtfWeight = new JTextField();
-		private JTextField jtfBMI = new JTextField();
-			
-		private JButton jbtCalculate = new JButton("Calculate");
+public class BMI extends JFrame{
 		
 	public BMI(){
-		JPanel p1 = new JPanel(new GridLayout(3 , 2));
-		p1.add(new Label("Height"));
-		p1.add(jtfHeight);
-		p1.add(new Label("Weight"));
-		p1.add(jtfWeight);
-		p1.add(new Label("BMI"));
-		p1.add(jtfBMI);
-		p1.setBorder(new TitledBorder("Enter your height and weight"));
 		
-		JPanel p2 = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+		setLayout(new GridLayout(4, 2 ,5,5));
+		// Set GridLayout, 4 rows, 2 columns, and gaps 5 between
+	    // components horizontally and vertically
 		
+		// Add labels and text fields to the frame
+		add(new JLabel("Height"));
+		add(new JTextField(3));
+		add(new JLabel("Weight"));
+		add(new JTextField(3));
+		add(new JLabel("BMI"));
+		add(new JTextField(3));
+		add(new JButton("Calculate"));//Add button
 		
-	}	
-	
-
+	}
+	    
+	/** Main method */
 	public static void main(String[] args){
 		
-		
+		BMI frame = new BMI();
+		frame.setTitle("BMI");
+		frame.setSize(300,200);
+		frame.setLocationRelativeTo(null);  // Center the frame
+	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    frame.setVisible(true);
 	}
 	}
 
