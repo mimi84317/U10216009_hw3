@@ -8,16 +8,22 @@ public class BMI extends JFrame{
 		
 	public BMI(){
 		
-		setLayout(new GridLayout(4, 2 ,5,5));
+		setLayout(new GridLayout(6, 2 ,5,5));
 		// Set GridLayout, 4 rows, 2 columns, and gaps 5 between
 	    // components horizontally and vertically
 		
 		// Add labels and text fields to the frame
+		add(new JLabel("Name"));
+		add(new JTextField(3));
+		add(new JLabel("Age"));
+		add(new JTextField(3));
 		add(new JLabel("Height"));
 		add(new JTextField(3));
 		add(new JLabel("Weight"));
 		add(new JTextField(3));
 		add(new JLabel("BMI"));
+		add(new JTextField(3));
+		add(new JLabel("Status"));
 		add(new JTextField(3));
 		add(new JButton("Calculate"));//Add button
 		
