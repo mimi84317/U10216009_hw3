@@ -12,6 +12,8 @@ public class BMI_2 extends JFrame{
 	private JTextField jtfHeight = new JTextField();
 	private JTextField jtfWeight = new JTextField();
 	private JTextField jtfBMI = new JTextField();
+	private JTextField jtfStatus = new JTextField();	
+	
 	
 	// Create a Compute BMI button
 	public JButton jbtCalculate = new JButton("Calculate");
@@ -19,7 +21,7 @@ public class BMI_2 extends JFrame{
 	public BMI_2(){
 		
 		// Panel p1 to hold labels and text fields
-		JPanel p1 = new JPanel(new GridLayout(5, 2));
+		JPanel p1 = new JPanel(new GridLayout(6, 2));
 		p1.add(new JLabel("Name"));
 		p1.add(jtfName);
 		p1.add(new JLabel("Age"));
@@ -30,6 +32,8 @@ public class BMI_2 extends JFrame{
 		p1.add(jtfWeight);
 		p1.add(new JLabel("BMI"));
 		p1.add(jtfBMI);
+		p1.add(new JLabel("Status"));
+		p1.add(jtfStatus);
 		p1.setBorder(new TitledBorder("Enter name, age, height, and weight."));
 		
 		// Panel p2 to hold the button
@@ -51,12 +55,15 @@ public class BMI_2 extends JFrame{
 		public void actionPerformed(ActionEvent e){
 			// Get values from text fields
 			
+			int age = Integer.parseInt(jtfAge.getText());
 			double height = Double.parseDouble(jtfHeight.getText());
 			double weight = Double.parseDouble(jtfWeight.getText());
-			double bmi = weight / (Math.pow(height, 2));
 			
-			// Display BMI 
-			jtfBMI.setText(String.format("%.2f", bmi ));
+			 // Create a BMI object
+			UseBMIClass bmi = new UseBMIClass( age, weight, height );
+			// Display BMI and Status
+			jtfBMI.setText(String.format("%.2f", bmi.getBMI()));
+			jtfStatus.setText(String.format("%s", bmi.getStatus()));
 			
 			
 		}
